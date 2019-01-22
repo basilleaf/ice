@@ -1,0 +1,176 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css"  data-require="leaflet@0.7.3" data-semver="0.7.3" />
+
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+
+    <style>
+    body {
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+    ul {
+      display:flex; flex-wrap: wrap; list-style-type: none;
+    }
+    li {
+
+    }
+
+    <JavaScript>
+    var base = {
+        'Empty': L.tileLayer(''),
+      };
+
+      var map = L.map('map', {
+        'center': [0, 0],
+        'zoom': 0,
+        'layers': [
+          base.Empty
+        ]
+      });
+
+
+    </JavaScript>
+
+</style>
+</head>
+
+<body>
+
+    <ul>
+        <li style="flex: 50%; overflow: hidden">
+            <video autoplay loop class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Ciliate_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Rotifer_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Rotifer_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Tardigrade_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Ciliate_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Rotifer_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Tardigrade_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Tardigrade_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Ciliate_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Rotifer_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Ciliate_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+        <li style="flex: 50%; overflow: hidden">
+            <video class="video-js" preload="auto" width="700" poster="MY_VIDEO_POSTER.jpg" data-setup="{}" autoplay loop muted="true">
+                <source src='https://s3-us-west-1.amazonaws.com/antarcticmicrobia/Tardigrade_Short.m3u8' type='application/x-mpegURL'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+                <video>
+        </li>
+
+
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js" data-require="leaflet@0.7.3" data-semver="0.7.3"></script>
+        <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
+
+</body>
+
+</html>
