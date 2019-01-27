@@ -1,3 +1,2 @@
 # echo $pw | pbcopy
-rsync -rv --exclude .git /Users/lballard/projects/antarcticmicrobia befoream@www.beforeamillionuniverses.com:~/www/.
-
+rsync -rv --exclude .git /Users/lisab/projects/ice befoream@www.beforeamillionuniverses.com:~/www/.
