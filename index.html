@@ -1,228 +1,59 @@
-<header class="masthead clear">
-  <style>
-    /* Import the google web fonts you want to use */
+<<!DOCTYPE html>
+  <html lang="en" dir="ltr">
 
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
 
-  @import url('https://fonts.googleapis.com/css?family=Comfortaa|Patua+One');
+  <body>
 
-  /* Card Based Layout - Base styles */
-
-  body {
-  	background: hsl(0, 0%, 90%);
-  }
-
-  /*--------------------------------------------------------------
-  Typography
-  --------------------------------------------------------------*/
-  body,
-  button,
-  input,
-  select,
-  textarea {
-  	color: #404040;
-  	font-family: 'Comfortaa', Arial, sans-serif;
-  	font-size: 24px;
-  	line-height: 1.5;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-  	clear: both;
-    font-family: 'Patua One', serif;
-    letter-spacing: 2px;
-  }
-
-  h2 {
-    font-size: 1rem;
-    color: #007489;
-  }
-
-  p {
-  	margin-bottom: 1.5em;
-    color: #898989;
-  }
-
-  b,
-  strong {
-  	font-weight: bold;
-  }
-
-  dfn,
-  cite,
-  em,
-  i {
-  	font-style: italic;
-  }
-
-  blockquote {
-  	margin: 0 1.5em;
-  }
-
-  address {
-  	margin: 0 0 1.5em;
-  }
-
-  pre {
-  	background: #eee;
-  	font-family: "Courier 10 Pitch", Courier, monospace;
-  	font-size: 15px;
-  	font-size: 1.5rem;
-  	line-height: 1.6;
-  	margin-bottom: 1.6em;
-  	max-width: 100%;
-  	overflow: auto;
-  	padding: 1.6em;
-  }
-
-  code,
-  kbd,
-  tt,
-  var {
-  	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  }
-
-  abbr,
-  acronym {
-  	border-bottom: 1px dotted #666;
-  	cursor: help;
-  }
-
-  mark,
-  ins {
-  	background: #fff9c0;
-  	text-decoration: none;
-  }
-
-  sup,
-  sub {
-  	font-size: 75%;
-  	height: 0;
-  	line-height: 0;
-  	position: relative;
-  	vertical-align: baseline;
-  }
-
-  sup {
-  	bottom: 1ex;
-  }
-
-  sub {
-  	top: .5ex;
-  }
-
-  small {
-  	font-size: 75%;
-  }
-
-  big {
-  	font-size: 125%;
-  }
-
-  .masthead {
-  	background-color: #005b75;
-  }
-
-  .masthead p, .masthead p a {
-    color: white;
-  }
-
-  .site-title {
-  	color: white;
-  }
-
-  img {
-  	display: block;
-  	border: 0;
-  	width: 100%;
-  	height: auto;
-  }
-
-
-  .card {
-  	background: white;
-  	margin: 2em;
-    width: 40%;
-  }
-
-  .card a {
-  	color: black;
-  	text-decoration: none;
-  }
-
-  .card a:hover {
-  	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
-  }
-
-  .card-content {
-  	padding: 1.4em;
-  }
-
-  .card-content h2 {
-  	margin-top: 0;
-  	margin-bottom: .5em;
-  	font-weight: bold;
-  }
-
-  .card-content p {
-  	font-size: 80%;
-  }
-
-  /* Flexbox stuff */
-
-  .cards {
-     display: flex;
-     flex-wrap: wrap;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-
-  }
+    <link rel="stylesheet" href="style.css" />
 
 
 
+    <header class="masthead clear">
 
-
-</style>
-    </header><!-- .masthead -->
+    </header>
+    <!-- .masthead -->
 
     <main class="main-area">
 
-        <div class="centered">
+      <div class="centered">
 
-            <section class="cards">
+        <section class="cards">
 
-                <article class="card">
-                    <a href="#">
-                        <picture class="thumbnail">
-                            <img src="thing.jpg" alt="squirm squirm">
-                        </picture>
-                        <div class="card-content">
-                          <h2>demos</h2>
-                          <div>
-                             <a href="chrome_map">multiple vids with map</a>
-                            </div>
-                            <div>
-                               <a href="chrome">multiple vids</a>
-                              </div>
-                              <div>
-                              <a href="map">map with vids - safari only</a>
-                                </div>
+          <article class="card">
+            <a href="#">
+              <picture class="thumbnail">
+                <img src="thing.jpg" alt="squirm squirm">
+              </picture>
+              <div class="card-content">
+                <h2>demos</h2>
+                <ul>
+                  <li>
+                    <a href="chrome_map">map with vids - chrome only </a> (safari problem is nbd s3 bucket issue)
+                  </li>
+                  <li>
+                    <a href="chrome">multiple vids</a>
+                  </li>
+                  <li>
+                    <a href="map">map with vids - safari only</a>
+                  </li>
+                </ul>
+
+              </div>
+              <!-- .card-content -->
+            </a>
+          </article>
+          <!-- .card -->
 
 
+        </section>
+        <!-- .cards -->
 
-
-                              </div><!-- .card-content -->
-                    </a>
-                </article><!-- .card -->
-
-
-            </section><!-- .cards -->
-
-        </div><!-- .centered -->
+      </div>
+      <!-- .centered -->
 
     </main>
 
@@ -230,4 +61,6 @@
 
 
 
-</body>
+  </body>
+
+  </html>
