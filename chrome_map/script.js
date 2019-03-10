@@ -14,15 +14,15 @@ var map = L.map("map", {
   layers: [base.Empty]
 })
 
+// map click
 function onMapClick(e) {
   console.log("You clicked the map at " + e.latlng)
 }
-
 map.on("click", onMapClick)
 
 var map_control = L.control.layers(base).addTo(map)
 
-var bounds
+// video
 const vid_config = {
   muted: true,
   autoplay: true,
@@ -30,24 +30,15 @@ const vid_config = {
 }
 
 const all_vid_names = [
-  "Rotifer_Short.m3u8",
-  "Ciliate_Short.m3u8",
-  "Tardigrade_Short.m3u8",
-  "Ciliate_Short1.m3u8",
-  "Tardigrade_Short1.m3u8",
-  "Ciliate_Short2.m3u8",
-  "Tardigrade_Short2.m3u8",
-  "Rotifer_Short3.m3u8",
-  "Ciliate_Short3.m3u8",
-  "Tardigrade_Short3.m3u8",
-  "Rotifer_Short4.m3u8",
-  "Ciliate_Short4.m3u8",
-  "Tardigrade_Short4.m3u8",
-  "Rotifer_Short5.m3u8",
-  "Ciliate_Short5.m3u8",
-  "Tardigrade_Short5.m3u8"
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_Spiral_02.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+  "112118_CanadaGlacierCryoconite2_NikonE200_10x_Ciliate.m3u8"
 ]
 
+// video location bounds on map
 const all_locs = [
   [[0, 0], [400, 400]],
   [[0, 0], [-400, -400]],
@@ -67,10 +58,9 @@ const all_locs = [
   [[1200, -1200], [1800, -1700]]
 ]
 
-var video
+var video, bounds, url, video_overlay, filename
 var all_hls = []
 var key = 0
-var bounds, url, video_overlay, filename
 
 var config = {
   capLevelToPlayerSize: true,
@@ -91,6 +81,7 @@ all_vid_names.forEach((filename, key) => {
 
   // video = document.createElement("video")
   video.id = "video" + key.toString()
+
   video.muted = true
   video.loop = true
   video.autoplay = true
@@ -106,7 +97,6 @@ all_vid_names.forEach((filename, key) => {
       video.autoplay = true
     })
   }
-
   // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
   // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
   // This is using the built-in support of the plain video element, without using hls.js.
