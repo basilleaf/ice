@@ -1,4 +1,4 @@
-const base_url = "https://s3-us-west-1.amazonaws.com/antarcticmicrobia/"
+const base_url = "https://s3.amazonaws.com/lifeundertheice/"
 
 // map
 var base = {
