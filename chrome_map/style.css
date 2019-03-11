@@ -1,10 +1,12 @@
 body {
   margin: 0;
+  background-color: #dcdedd;
 }
 html,
 body,
 #map {
   height: 100%;
+  background-color: #dcdedd;
 }
 
 #critters {
