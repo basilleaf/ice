@@ -6,7 +6,7 @@ overlap = 10
 
 img_height = 1080
 img_width = 1920
-rows = 6 // square grid number of rows/columns
+rows = 5 // square grid number of rows/columns
 
 x = vid_size_x
 y = x * (img_height / img_width)
@@ -41,11 +41,11 @@ var base = {
 var map = L.map("map", {
   crs: L.CRS.Simple,
   minZoom: -5,
-  center: [(y * rows) / 2, (x * rows) / 2],
-  zoom: 4,
-  layers: [base.Empty],
-  interactive: true,
-  className: ""
+  center: [Math.ceil((y * rows) / 2), Math.ceil((x * rows) / 2)],
+  zoom: 3,
+  layers: [base.Empty]
+  // interactive: true,
+  // className: ""
 })
 
 // map click
@@ -89,20 +89,7 @@ const all_vid_names = [
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
 
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
-
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
-
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8"
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8"
 ]
 
 all_vid_names.sort(function() {
