@@ -1,63 +1,17 @@
 const base_url = "https://s3.amazonaws.com/lifeundertheice/"
 
-// map
-vid_size_x = 500 //
-overlap = 10
-
 img_height = 1080
 img_width = 1920
+
+// map
+init_zoom = -1
+overlap = 10
+
 rows = 5 // square grid number of rows/columns
 
+vid_size_x = img_width // 500
 x = vid_size_x
 y = x * (img_height / img_width)
-
-// this will fill a grid from left to right but we really need to
-// fill the screen in viewport, then fill an adjacent screen and so on
-//
-//   [[0 * y - overlap, 0 * x - overlap], [1 * y + overlap, 1 * x + overlap]],
-//   [[0 * y - overlap, 1 * x - overlap], [1 * y + overlap, 2 * x + overlap]],
-//   [[0 * y - overlap, 2 * x - overlap], [1 * y + overlap, 3 * x + overlap]],
-//   [[0 * y - overlap, 3 * x - overlap], [1 * y + overlap, 4 * x + overlap]],
-//
-//   [[1 * y - overlap, 0 * x - overlap], [2 * y + overlap, 1 * x + overlap]],
-//   [[1 * y - overlap, 1 * x - overlap], [2 * y + overlap, 2 * x + overlap]],
-//   [[1 * y - overlap, 2 * x - overlap], [2 * y + overlap, 3 * x + overlap]],
-//   [[1 * y - overlap, 3 * x - overlap], [2 * y + overlap, 4 * x + overlap]]
-
-// that pattern ^ scripted:
-let all_locs = []
-for (i = 0; i < rows; i++) {
-  for (j = 0; j < rows; j++) {
-    all_locs.push([
-      [i * y - overlap, j * x - overlap],
-      [(i + 1) * y + overlap, (j + 1) * x + overlap]
-    ])
-  }
-}
-
-var base = {
-  Empty: L.tileLayer("")
-}
-
-var map = L.map("map", {
-  crs: L.CRS.Simple,
-  minZoom: -5,
-  center: [Math.ceil((y * rows) / 2), Math.ceil((x * rows) / 2)],
-  zoom: 3,
-  layers: [base.Empty]
-  // interactive: true,
-  // className: ""
-})
-
-// map click
-function onMapClick(e) {
-  console.log("You clicked the map at", e.latlng)
-}
-map.on("click", onMapClick)
-
-var map_control = L.control.layers(base).addTo(map)
-
-// video
 
 const all_vid_names = [
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
@@ -92,6 +46,57 @@ const all_vid_names = [
 
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8"
 ]
+
+// this will fill a grid from left to right but we really need to
+// fill the screen in viewport, then fill an adjacent screen and so on
+//
+//   [[0 * y - overlap, 0 * x - overlap], [1 * y + overlap, 1 * x + overlap]],
+//   [[0 * y - overlap, 1 * x - overlap], [1 * y + overlap, 2 * x + overlap]],
+//   [[0 * y - overlap, 2 * x - overlap], [1 * y + overlap, 3 * x + overlap]],
+//   [[0 * y - overlap, 3 * x - overlap], [1 * y + overlap, 4 * x + overlap]],
+//
+//   [[1 * y - overlap, 0 * x - overlap], [2 * y + overlap, 1 * x + overlap]],
+//   [[1 * y - overlap, 1 * x - overlap], [2 * y + overlap, 2 * x + overlap]],
+//   [[1 * y - overlap, 2 * x - overlap], [2 * y + overlap, 3 * x + overlap]],
+//   [[1 * y - overlap, 3 * x - overlap], [2 * y + overlap, 4 * x + overlap]]
+
+// that pattern ^ scripted:
+let all_locs = []
+for (i = 0; i < rows; i++) {
+  for (j = 0; j < rows; j++) {
+    all_locs.push([
+      [i * y - overlap, j * x - overlap],
+      [(i + 1) * y + overlap, (j + 1) * x + overlap]
+    ])
+  }
+}
+
+var base = {
+  Empty: L.tileLayer("")
+}
+
+var map = L.map("map", {
+  crs: L.CRS.Simple,
+  minZoom: init_zoom - 1,
+  maxZoom: init_zoom + 4,
+  // center: [y, x],
+  center: [Math.ceil((y * rows) / 3), Math.ceil((x * rows) / 3)],
+  zoom: init_zoom,
+
+  layers: [base.Empty]
+  // interactive: true,
+  // className: ""
+})
+
+// map click
+function onMapClick(e) {
+  console.log("You clicked the map at", e.latlng)
+}
+map.on("click", onMapClick)
+
+var map_control = L.control.layers(base).addTo(map)
+
+// video
 
 all_vid_names.sort(function() {
   return 0.5 - Math.random()
