@@ -13,6 +13,7 @@ y = x * (img_height / img_width)
 
 // this will fill a grid from left to right but we really need to
 // fill the screen in viewport, then fill an adjacent screen and so on
+//
 //   [[0 * y - overlap, 0 * x - overlap], [1 * y + overlap, 1 * x + overlap]],
 //   [[0 * y - overlap, 1 * x - overlap], [1 * y + overlap, 2 * x + overlap]],
 //   [[0 * y - overlap, 2 * x - overlap], [1 * y + overlap, 3 * x + overlap]],
