@@ -1,62 +1,58 @@
 const base_url = "https://s3.amazonaws.com/lifeundertheice/"
 
 // map
+
+const img_size = [520, 1050] // just guessing? why does this matter?
+
+y = img_size[0]
+x = img_size[1]
+
+const all_locs = [
+  [[0 - 50, 0 - 200], [y, x]], // y,x
+  [[0 - 50, 0 - 200], [-y, x - 200]],
+  [[0, 0], [y, -x]],
+  [[0, 0], [-y, -x]]
+]
+
 var base = {
   Empty: L.tileLayer("")
 }
 
 var map = L.map("map", {
   crs: L.CRS.Simple,
-  minZoom: -1,
-  maxZoom: 1,
+  minZoom: -5,
   center: [0, 0],
-  zoom: 1,
-  layers: [base.Empty]
+  zoom: -1,
+  layers: [base.Empty],
+  interactive: true,
+  className: ""
 })
 
 // map click
 function onMapClick(e) {
-  console.log("You clicked the map at " + e.latlng)
+  console.log("You clicked the map at", e.latlng)
 }
 map.on("click", onMapClick)
 
 var map_control = L.control.layers(base).addTo(map)
 
 // video
-const vid_config = {
-  muted: true,
-  autoplay: true,
-  loop: true
-}
 
 const all_vid_names = [
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_40x_Spiral_02.m3u8",
-  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
-  "112118_CanadaGlacierCryoconite2_NikonE200_10x_Ciliate.m3u8"
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8"
+  // "112118_CanadaGlacierCryoconite1_NikonE200_40x_Spiral_02.m3u8",
+  // "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+  // "112118_CanadaGlacierCryoconite2_NikonE200_10x_Ciliate.m3u8"
 ]
 
-// video location bounds on map
-const all_locs = [
-  [[0, 0], [400, 400]],
-  [[0, 0], [-400, -400]],
-  [[0, 0], [-400, 400]],
-  [[0, 0], [400, -400]],
-  [[200, 200], [700, 700]],
-  [[-200, -200], [-700, -700]],
-  [[200, -200], [700, -700]],
-  [[-200, 200], [-700, 700]],
-  [[700, 700], [1500, 1500]],
-  [[-700, -700], [-1500, -1500]],
-  [[700, -700], [1500, -1500]],
-  [[-500, 500], [-1200, 1200]],
-  [([1200, 1200], [1800, 1700])],
-  [[-1200, -1200], [-1800, -1700]],
-  [[-1200, 1200], [-1800, 1700]],
-  [[1200, -1200], [1800, -1700]]
-]
+const vid_config = {
+  muted: true,
+  autoplay: true,
+  loop: true
+}
 
 var video, bounds, url, video_overlay, filename
 var all_hls = []
@@ -74,17 +70,17 @@ all_vid_names.forEach((filename, key) => {
 
   loc = all_locs[key]
   url = `${base_url}${filename}`
-  bounds = L.latLngBounds(loc)
+  // bounds = L.latLngBounds(loc)
 
-  video_overlay = L.videoOverlay(url, bounds, vid_config).addTo(map)
+  video_overlay = L.videoOverlay(url, loc, vid_config).addTo(map)
   video = video_overlay.getElement()
 
   // video = document.createElement("video")
   video.id = "video" + key.toString()
 
-  video.muted = true
-  video.loop = true
-  video.autoplay = true
+  // video.muted = true
+  // video.loop = true
+  // video.autoplay = true
   // document.getElementById("map").appendChild(video)
 
   if (Hls.isSupported()) {
