@@ -1,25 +1,25 @@
 const base_url = "https://s3.amazonaws.com/lifeundertheice/"
 
 // map
+vid_size_x = 500 //
+overlap = 10
 
-const img_size = [520, 1050] // just guessing? why does this matter?
+img_height = 1080
+img_width = 1920
+rows = 6 // square grid number of rows/columns
 
-y = img_size[0]
-x = img_size[1]
+x = vid_size_x
+y = x * (img_height / img_width)
 
-const all_locs = [
-  [[0 - 50, 0 - 200], [y, x]], // y,x
-  [[0 - 50, 0 - 200], [-y, x - 200]],
-  [[0, 0], [y, -x]],
-  [[0, 0], [-y, -x]]
-
-  // should be something like: 
-  // [[0 ,0], [y, x]], // y,x
-  // [[0 ,0], [-y, x]],
-  // [[0, 0], [y, -x]],
-  // [[0, 0], [-y, -x]]
-]
-]
+let all_locs = []
+for (i = 0; i < rows; i++) {
+  for (j = 0; j < rows; j++) {
+    all_locs.push([
+      [i * y - overlap, j * x - overlap],
+      [(i + 1) * y + overlap, (j + 1) * x + overlap]
+    ])
+  }
+}
 
 var base = {
   Empty: L.tileLayer("")
@@ -28,8 +28,8 @@ var base = {
 var map = L.map("map", {
   crs: L.CRS.Simple,
   minZoom: -5,
-  center: [0, 0],
-  zoom: -1,
+  center: [(y * rows) / 2, (x * rows) / 2],
+  zoom: 4,
   layers: [base.Empty],
   interactive: true,
   className: ""
@@ -49,11 +49,52 @@ const all_vid_names = [
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
+
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_PinkRotifer.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_Beginning.m3u8",
+  "112118_CanadaGlacierCryoconite1_NikonE200_10x_Tardigrade_End.m3u8",
   "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8"
-  // "112118_CanadaGlacierCryoconite1_NikonE200_40x_Spiral_02.m3u8",
-  // "112118_CanadaGlacierCryoconite1_NikonE200_40x_TwoSpirals_02.m3u8",
-  // "112118_CanadaGlacierCryoconite2_NikonE200_10x_Ciliate.m3u8"
 ]
+
+all_vid_names.sort(function() {
+  return 0.5 - Math.random()
+})
 
 const vid_config = {
   muted: true,
